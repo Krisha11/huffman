@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 	try {
 		algo(type, file_in, file_out);
 	}
-	catch(HuffmanException e) {
+	catch(HuffmanException &e) {
 		std::cout << e.what() << "\n";
 	}
 	catch(...) {
