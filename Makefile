@@ -1,11 +1,10 @@
 flags = --std=gnu++11 -O3 -Werror -Wall -Wextra -Wpedantic
-all: hw_03
+all: main
 
-hw_03: bin/ bin/main.o bin/huffman.o
-	g++ bin/main.o bin/huffman.o -o hw_03
-hw_03_test: test
+main: bin/ bin/main.o bin/huffman.o
+	g++ bin/main.o bin/huffman.o -o main
 test: bin/ bin/test.o bin/huffman_test.o bin/autotest.o bin/huffman.o
-	g++ bin/test.o bin/huffman_test.o bin/autotest.o bin/huffman.o -o hw_03_test
+	g++ bin/test.o bin/huffman_test.o bin/autotest.o bin/huffman.o -o test
 bin/test.o:
 	g++ -c $(flags) test/test.cpp -o bin/test.o -I include/
 bin/huffman_test.o:
@@ -19,4 +18,4 @@ bin/huffman.o:
 bin/:
 	mkdir bin
 clean:
-	rm bin/*.o hw_03 hw_03_test -rf bin/
+	rm bin/*.o main test -rf bin/
